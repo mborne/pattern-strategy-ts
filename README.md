@@ -2,27 +2,23 @@
 
 Illustration de l'intérêt du patron de conception Strategy par rapport à une approche basée sur le polymorphisme.
 
-## Problème
+## Description
 
-Nous patrons d'un projet où :
+Sur cette branche correspondant à une solution basée sur l'héritage :
 
-* [Application](./src/Application.ts) permet de flouter une image (`blur`).
-* [cli.ts](cli.ts) expose cette application sous forme d'une API en ligne de commande :
+* [Application](./src/Application.ts) a été promue en interface
+* [ApplicationBlur](./src/ApplicationBlur.ts) implémente le cas `blur`
+* [ApplicationGreyscale](./src/ApplicationGreyscale.ts) implémente le cas `greyscale`
+* [cli.ts](./cli.ts) est adapté pour instancier l'application en fonction du nouveau paramètre (`operationName=blur|greyscale`)
+
+Nous avons bien le fonctionnement attendu :
 
 ```bash
-npx tsx cli.ts data/joconde.jpg data/joconde-blur.jpg
+npx tsx cli.ts data/joconde.jpg data/joconde-blur.jpg blur
+npx tsx cli.ts data/joconde.jpg data/joconde-greyscale.jpg greyscale
 ```
 
-Nous souhaitons améliorer l'application en permettant deux opérations :
-
-* Flouter une image (`blur`)
-* Convertir l'image en niveau de gris (`grayscale`)
-
-La cible est l'API suivante :
-
-```
-npx tsx cli.ts <inputFile> <outputFile> (blur|grayscale)
-```
+Les limites de l'approche sont décrites dans le cours.
 
 ## Licence
 
