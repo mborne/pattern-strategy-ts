@@ -4,7 +4,7 @@ Illustration de l'intérêt du patron de conception Strategy par rapport à une 
 
 ## Description
 
-Sur cette branche correspondant à une solution basée sur une stratégie :
+Cette branche correspondant à une **solution basée sur une stratégie** où :
 
 * [Application](./src/Application.ts) reste une classe concrète
 * [ImageProcessor](./src/ImageProcessor.ts) est la **stratégie** modélisant le traitement avec plusieurs implémentations :
