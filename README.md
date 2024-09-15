@@ -2,7 +2,7 @@
 
 Illustration de l'intérêt du patron de conception Strategy par rapport à une approche basée sur le polymorphisme.
 
-## Problème
+## Description
 
 Nous patrons d'un projet où :
 
@@ -11,17 +11,6 @@ Nous patrons d'un projet où :
 
 ```bash
 npx tsx cli.ts data/joconde.jpg data/joconde-blur.jpg
-```
-
-Nous souhaitons améliorer l'application en permettant deux opérations :
-
-* Flouter une image (`blur`)
-* Convertir l'image en niveau de gris (`grayscale`)
-
-La cible est l'API suivante :
-
-```
-npx tsx cli.ts <inputFile> <outputFile> (blur|grayscale)
 ```
 
 ## Licence
