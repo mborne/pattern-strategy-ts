@@ -1,19 +1,7 @@
 import process from "process";
 
-import ApplicationBlur from "./src/ApplicationBlur";
-import ApplicationGreyscale from "./src/ApplicationBlur";
 import Application from "./src/Application";
-
-function createApplication(operationName): Application {
-    switch(operationName){
-        case "blur":
-            return new ApplicationBlur();
-        case "greyscale":
-            return new ApplicationGreyscale();
-        default:
-            throw new Error(`operation '${operationName}' not supported`);
-    }
-}
+import ImageProcessorFactory from './src/ImageProcessFactory';
 
 async function main(){
     const params = process.argv.slice(2);
@@ -23,7 +11,8 @@ async function main(){
     const inputFile = params[0];
     const outputFile = params[1] as `${string}.${string}`;
     const operationName = params[2];
-    const application = createApplication(operationName);
+    const imageProcessor = ImageProcessorFactory.createList(operationName);
+    const application = new Application(imageProcessor);
     application.run(inputFile,outputFile);
 }
 

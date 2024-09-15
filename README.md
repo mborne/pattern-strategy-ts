@@ -4,29 +4,25 @@ Illustration de l'intérêt du patron de conception Strategy par rapport à une 
 
 ## Description
 
-Sur cette branche correspondant à une solution basée sur l'héritage :
+Sur cette branche correspondant à une solution basée sur une stratégie :
 
-* [Application](./src/Application.ts) a été promue en interface
-* [ApplicationBlur](./src/ApplicationBlur.ts) implémente le cas `blur`
-* [ApplicationGreyscale](./src/ApplicationGreyscale.ts) implémente le cas `greyscale`
+* [Application](./src/Application.ts) reste une classe concrète
+* [ImageProcessor](./src/ImageProcessor.ts) est la **stratégie** modélisant le traitement avec plusieurs implémentations :
+  * [ImageProcessorBlur](./src/ImageProcessorBlur.ts) pour l'opération `blur`
+  * [ImageProcessorGreyscale](./src/ImageProcessorGreyscale.ts) pour l'opération `greyscale`
+  * [ImageProcessorList](./src/ImageProcessorList.ts) représente une liste d'opération (**patron composite**)
+* [ImageProcessFactory](./src/ImageProcessFactory.ts) assure la construction en faisant abstraction sur le parsing (**fabrique statique**)
 * [cli.ts](./cli.ts) est adapté pour instancier l'application en fonction du nouveau paramètre (`operationName=blur|greyscale`)
 
 Nous avons bien le fonctionnement attendu :
 
 ```bash
-npx tsx cli.ts data/joconde.jpg data/joconde-blur.jpg blur
-npx tsx cli.ts data/joconde.jpg data/joconde-greyscale.jpg greyscale
+npx tsx cli.ts data/joconde.jpg data/joconde-blur-greyscale.jpg blur,greyscale
 ```
 
-Les limites de l'approche sont décrites dans le cours.
+L'intérêt de l'approche est précisé dans le cours.
 
 ## Licence
 
 [MIT](LICENSE)
-
-
-
-
-
-
 

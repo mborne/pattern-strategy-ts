@@ -2,13 +2,12 @@
   "name": "ts-strategy-pattern",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-
-  },
+  "scripts": {},
   "author": "MBorne <mborne@users.noreply.github.com>",
   "license": "MIT",
   "description": "",
   "dependencies": {
+    "@jimp/types": "^1.6.0",
     "jimp": "^1.6.0",
     "tsx": "^4.19.1",
     "typescript": "^5.6.2"
