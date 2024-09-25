@@ -18,7 +18,7 @@ npx tsx cli.ts data/joconde.jpg data/joconde-blur.jpg blur
 npx tsx cli.ts data/joconde.jpg data/joconde-greyscale.jpg greyscale
 ```
 
-Les limites de l'approche sont décrites dans le cours.
+**Les limites de l'approche sont décrites dans le cours.**
 
 ## Licence
 
