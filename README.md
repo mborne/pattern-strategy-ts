@@ -1,10 +1,10 @@
-# ts-strategy-pattern
+# strategy-pattern-ts
 
 Illustration de l'intérêt du patron de conception Strategy par rapport à une approche basée sur le polymorphisme.
 
 ## Description
 
-Sur cette branche correspondant à une solution basée sur l'héritage :
+Sur cette branche correspondant à une **solution basée sur l'héritage** :
 
 * [Application](./src/Application.ts) a été promue en interface
 * [ApplicationBlur](./src/ApplicationBlur.ts) implémente le cas `blur`
