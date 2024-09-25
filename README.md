@@ -20,7 +20,7 @@ Nous avons bien le fonctionnement attendu :
 npx tsx cli.ts data/joconde.jpg data/joconde-blur-greyscale.jpg blur,greyscale
 ```
 
-L'intérêt de l'approche est précisé dans le cours.
+**L'intérêt de l'approche est précisé dans le cours.**
 
 ## Licence
 
