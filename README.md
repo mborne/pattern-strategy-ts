@@ -1,6 +1,6 @@
 # strategy-pattern-ts
 
-Illustration de l'intérêt du patron de conception Strategy par rapport à une approche basée sur le polymorphisme.
+Illustration de l'intérêt du [patron de conception Strategy](https://mborne.github.io/cours-patron-conception/annexe/design_pattern/behavior/Strategy.html) par rapport à une approche basée sur le polymorphisme.
 
 ## Principe
 
