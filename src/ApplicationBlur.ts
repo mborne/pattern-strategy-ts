@@ -7,7 +7,7 @@ export default class ApplicationBlur implements Application {
         // lecture de l'image
         const image = await Jimp.read(inputFile);
         // traitement de l'image
-        await image.color([{apply:'greyscale'}]);
+        await image.blur(10);
         // sauvegarde de l'image
         await image.write(outputFile as `${string}.${string}`);
     }

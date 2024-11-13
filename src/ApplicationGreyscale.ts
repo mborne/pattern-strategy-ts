@@ -7,7 +7,7 @@ export default class ApplicationGreyscale implements Application {
         // lecture de l'image
         const image = await Jimp.read(inputFile);
         // traitement de l'image
-        await image.blur(10);
+        await image.color([{apply:'greyscale'}]);
         // sauvegarde de l'image
         await image.write(outputFile as `${string}.${string}`);
     }
