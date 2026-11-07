@@ -1,12 +1,13 @@
 import { Jimp } from "jimp";
 
-export default class Application {
-    async run(inputFile: string, outputFile: string){
-        // lecture de l'image
+export type JimpImage = Awaited<ReturnType<typeof Jimp.read>>;
+
+export default abstract class Application {
+    async run(inputFile: string, outputFile: string): Promise<void> {
         const image = await Jimp.read(inputFile);
-        // traitement de l'image
-        await image.blur(10);
-        // sauvegarde de l'image
+        await this.process(image);
         await image.write(outputFile as `${string}.${string}`);
     }
+
+    protected abstract process(image: JimpImage): Promise<void>;
 }

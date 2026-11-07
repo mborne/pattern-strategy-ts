@@ -2,30 +2,24 @@
 
 Illustration de l'intérêt du [patron de conception Strategy](https://mborne.github.io/cours-patron-conception/annexe/design_pattern/behavior/Strategy.html) par rapport à une approche basée sur le polymorphisme.
 
-## Principe
+## Description
 
-Nous partons d'un projet où :
+Sur cette branche correspondant à une **solution basée sur le patron [Template Method](https://mborne.github.io/architecture/patrons-conception/comportement/template-method.html)** :
 
-* [Application](./src/Application.ts) permet de flouter une image (`blur`).
-* [cli.ts](cli.ts) expose cette application sous forme d'une API en ligne de commande :
+* [Application](./src/Application.ts) est une classe abstraite qui porte le squelette du traitement (lecture, traitement, écriture) et délègue le traitement lui-même à la méthode abstraite `process`
+* [ApplicationBlur](./src/ApplicationBlur.ts) ne redéfinit que `process` pour le cas `blur`
+* [ApplicationGreyscale](./src/ApplicationGreyscale.ts) ne redéfinit que `process` pour le cas `greyscale`
+* [cli.ts](./cli.ts) instancie l'application en fonction du paramètre `operationName=blur|greyscale`
+
+Nous avons bien le fonctionnement attendu :
 
 ```bash
-npx tsx cli.ts data/joconde.jpg data/joconde-blur.jpg
+npx tsx cli.ts data/joconde.jpg data/joconde-blur.jpg blur
+npx tsx cli.ts data/joconde.jpg data/joconde-greyscale.jpg greyscale
 ```
 
-Nous explorons plusieurs approches pour offrir un choix entre `blur` et `greyscale` :
-
-* La branche ["heritage"](https://github.com/mborne/pattern-strategy-ts/tree/heritage#readme) correspond à une approche basée sur le polymorphisme au niveau de l'application ("Template Method")
-* La branche ["strategie"](https://github.com/mborne/pattern-strategy-ts/tree/strategy#readme) correspond à une approche basée sur le patron de conception "Stratégie".
-
+**Les limites de l'approche sont décrites dans le cours** : l'héritage ne permet pas de combiner les traitements (`blur,greyscale`) sans explosion combinatoire des classes.
 
 ## Licence
 
 [MIT](LICENSE)
-
-
-
-
-
-
-
